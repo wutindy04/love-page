@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ถึงแฟนสุดที่รัก 💖</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+    font-family:sans-serif;
+    text-align:center;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    max-width:350px;
+    position:relative;
+}
+
+button{
+    padding:14px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4e8a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#wish{
+    display:none;
+    margin-top:20px;
+    font-size:18px;
+    color:#444;
+}
+
+.heart{
+    position:fixed;
+    color:#ff4e8a;
+    font-size:20px;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(0); opacity:1;}
+    to{transform:translateY(-200px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>มีอะไรจะบอก 💌</h2>
+    <button onclick="showLove()">กดตรงนี้สิ 💕</button>
+
+    <div id="wish">
+        💖 ขอให้เธอมีความสุขที่สุดในทุก ๆ วัน 💖<br><br>
+        ขอบคุณที่เข้ามาเป็นรอยยิ้มของเรา<br>
+        เหนื่อยเมื่อไหร่หันมา เราจะอยู่ข้าง ๆ เสมอ 🤍<br><br>
+        เธอคือความโชคดีที่สุดของชีวิตเรา ✨
+    </div>
+</div>
+
+<script>
+function showLove(){
+    document.getElementById("wish").style.display="block";
+
+    // สร้างหัวใจลอย
+    for(let i=0;i<15;i++){
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="70vh";
+        heart.style.fontSize=(Math.random()*20+15)+"px";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{heart.remove();},2000);
+    }
+}
+</script>
+
+</body>
+</html>
